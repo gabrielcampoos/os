@@ -56,7 +56,7 @@ export const Home = () => {
 			navigate('/');
 		}
 		dispatch(obterUsuario());
-	}, [dispatch]);
+	}, [dispatch, navigate]);
 
 	useEffect(() => {
 		dispatch(

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 interface OsProps {
