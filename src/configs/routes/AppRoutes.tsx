@@ -9,7 +9,7 @@ const AppRoutes: React.FC = () => {
 		<BrowserRouter>
 			<Routes>
 				<Route path="/" element={<Login />} />
-				<Route path="/home" element={<Home />} />
+				<Route path="/os-ruby.vercel.app.com" element={<Home />} />
 			</Routes>
 		</BrowserRouter>
 	);
