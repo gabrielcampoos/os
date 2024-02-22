@@ -130,7 +130,9 @@ export const Home = () => {
 
 						<TextField
 							label="Valor"
-							onChange={(ev) => setValor(ev.currentTarget.value)}
+							onChange={(ev) =>
+								setValor(Number(ev.currentTarget.value))
+							}
 							value={valor}
 							sx={{
 								mt: 1,

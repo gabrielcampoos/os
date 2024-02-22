@@ -171,7 +171,9 @@ export const ModalMensagens: React.FC = () => {
 								type="number"
 								fullWidth
 								variant="filled"
-								onChange={(ev) => setValor(ev.target.value)}
+								onChange={(ev) =>
+									setValor(Number(ev.target.value))
+								}
 								value={valor}
 								multiline
 								minRows={3}
