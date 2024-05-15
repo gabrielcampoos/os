@@ -29,6 +29,7 @@ export const ModalMensagens: React.FC = () => {
 	const dispatch = useAppDispatch();
 	const { contexto, isOpen } = useAppSelector((state) => state.contexto);
 
+	const usuarioLogado = useAppSelector((usuario) => usuario.usuario);
 	const osSelecionada = useAppSelector((state) => state.idOs);
 
 	useEffect(() => {
@@ -62,6 +63,7 @@ export const ModalMensagens: React.FC = () => {
 						equipamento: equipamento,
 						descricao: descricao,
 						valor: valor,
+						criadoPor: usuarioLogado.usuario.username,
 					}),
 				);
 				setNomeCliente('');

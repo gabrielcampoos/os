@@ -17,6 +17,7 @@ type CadastrarOsDTO = {
 	equipamento: string;
 	descricao: string;
 	valor: number;
+	criadoPor: string;
 };
 
 interface AtualizarOsDTO {
