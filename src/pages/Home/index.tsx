@@ -108,9 +108,10 @@ export const Home = () => {
 						</Typography>
 						<TextField
 							label="Nome Cliente"
-							onChange={(ev) =>
-								setNomeCliente(ev.currentTarget.value)
-							}
+							onChange={(ev) => {
+								setNomeCliente(ev.currentTarget.value);
+								console.log(nomeCliente);
+							}}
 							value={nomeCliente}
 							sx={{
 								mt: 1,
@@ -140,14 +141,61 @@ export const Home = () => {
 						/>
 					</Grid>
 					<Grid item xs={2} sm={2} md={10}>
-						{nomeCliente !== '' || equipamento !== '' || valor !== 0
+						{nomeCliente !== ''
 							? selectOs
-									.filter(
-										(os) =>
-											os.nomeCliente === nomeCliente ||
-											os.equipamento === equipamento ||
-											os.valor === valor,
+									.filter((os) =>
+										os.nomeCliente.includes(nomeCliente),
 									)
+
+									.map(
+										({
+											id,
+											nomeCliente,
+											equipamento,
+											descricao,
+											valor,
+											criadoEm,
+										}) => (
+											<Cards
+												key={id}
+												id={id}
+												nomeCliente={nomeCliente}
+												equipamento={equipamento}
+												descricao={descricao}
+												valor={valor}
+												criadoEm={criadoEm.toString()}
+											/>
+										),
+									)
+							: equipamento !== ''
+							? selectOs
+									.filter((os) =>
+										os.equipamento.includes(equipamento),
+									)
+
+									.map(
+										({
+											id,
+											nomeCliente,
+											equipamento,
+											descricao,
+											valor,
+											criadoEm,
+										}) => (
+											<Cards
+												key={id}
+												id={id}
+												nomeCliente={nomeCliente}
+												equipamento={equipamento}
+												descricao={descricao}
+												valor={valor}
+												criadoEm={criadoEm.toString()}
+											/>
+										),
+									)
+							: valor !== 0
+							? selectOs
+									.filter((os) => os.valor === valor)
 
 									.map(
 										({
